@@ -1,6 +1,0 @@
----
-- name: EX374 Playbook for Copy the files
-  hosts: <Fill me>
-  tasks:
-    - name: EX374 Task
-...   <Fill me>
