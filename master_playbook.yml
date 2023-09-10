@@ -1,6 +1,16 @@
 ---
 - name: EX374 Playbook for Copy the files
-  hosts: <Fill me>
+  hosts: all
   tasks:
-    - name: EX374 Task
-...   <Fill me>
+    - name: Directory Creation
+      ansible.builtin.file:
+        path: "{{ DIRECTORY }}"
+        state: directory
+    - name: File creation
+      ansible.builtin.file:
+        path: "{{ FILE }}"
+        state: touch
+    - name: Copy the files
+      ansible.builtin.copy:
+        content: "{{ CONTENT }}"
+        dest: "{{ DIRECTORY }}/{{ FILE }}"
