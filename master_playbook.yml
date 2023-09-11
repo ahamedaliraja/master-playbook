@@ -1,0 +1,17 @@
+---
+- name: Variable Playbook
+  hosts: all
+  become: true
+  tasks:
+    - name: Directory task
+      ansible.builtin.file:
+        path: "{{ DIRECTORY }}"
+        state: directory
+    - name: File task
+      ansible.builtin.file:
+        path: "{{ FILE }}"
+        state: touch
+    - name: Variable task
+      ansible.builtin.copy:
+        content: "{{ CONTENT }}"
+        dest: "{{ DIRECTORY }}/{{ FILE }}"
