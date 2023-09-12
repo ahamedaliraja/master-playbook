@@ -1,0 +1,18 @@
+---
+- name: Variable Play
+  hosts: all
+  become: true
+  tasks:
+    - name: Directory Task
+      ansible.builtin.file:
+        path: "{{ DIRECTORY }}"
+        state: directory
+    - name: File Task
+      ansible.builtin.file:
+        path: "{{ FILE }}"
+        state: touch
+    - name: Copy Task
+      ansible.builtin.copy:
+        content: "{{ CONTENT }}"
+        dest: "{{ DIRECTORY }}/{{ FILE }}"
+
